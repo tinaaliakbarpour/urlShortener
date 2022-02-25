@@ -20,7 +20,7 @@ you should post a request like that :
 localhost/9808/:shortUrl
 it is a get request you should pass the short url as a parameter 
 
-###Run Test 
+## Run Test 
 you can run test in docker-compose
 
 ````
