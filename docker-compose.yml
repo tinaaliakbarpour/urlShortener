@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  # -----------------------------
+  # url shortner service
+  # -----------------------------
+  adminer:
+    build: 
+      context: ./
+    volumes:
+      - .:/go/src/application
+    networks:
+      - backend
+    depends_on:
+      - redis
+    ports: 
+      - 9808:9808
+
+  redis:
+    hostname: redis
+    image: redis:6.2-alpine
+    networks:
+      - backend
+
+  # -----------------------------
+  # redis UI
+  # -----------------------------
+  redis-commander:
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "9251:8081"
+    networks:
+      - backend
+
+
+# -----------------------------
+# networks
+# -----------------------------
+networks:
+  backend:
