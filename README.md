@@ -4,7 +4,7 @@ A url shortner that is written in Go with gin framework:
 it's a simple url shortner using hash algorithm (more accurate(sha256))
 it is exposed via localhost:9808
 
-##How To Test
+## How To Test
 you can use any tool to check the result :                                                       
 it has 2 endpoints :
 
